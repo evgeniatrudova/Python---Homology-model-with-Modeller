@@ -1,0 +1,137 @@
+# Practical Guide: Homology Modeling with Modeller
+
+# Step 1: Install Modeller.
+# Visit the official Modeller website and follow the installation instructions for your OS.
+
+# Step 2: Get an example sequence.
+# Go to https://salilab.org/ > Modeller > Documentation > Tutorial > Basic Modeling.
+# Copy the example sequence to a text file (for example, TvLDH sequence):
+
+"""
+>P1;TvLDH
+sequence:TvLDH:::::::0.00: 0.00
+MSEAAHVLITGAAGQIGYILSHWIASGELYGDRQVYLHLLDIPPAMNRLTALTMELEDCAFPHLAGFVATTDPKA
+AFKDIDCAFLVASMPLKPGQVRADLISSNSVIFKNTGEYLSKWAKPSVKVLVIGNPDNTNCEIAMLHAKNLKPEN
+FSSLSMLDQNRAYYEVASKLGVDVKDVHDIIVWGNHGESMVADLTQATFTKEGKTQKVVDVLDHDYVFDTFFKKI
+GHRAWDILEHRGFTSAASPTKAAIQHMKAWLFGTAPGEVLSMGIPVPEGNPYGIKPGVVFSFPCNVDKEGKIHVV
+EGFKVNDWLREKLDFTEKDLFHEKEIALNHLAQGG*
+"""
+
+# Save this file as "TvLDH.ali".
+
+# Step 3: Prepare your own sequences.
+# Collect the FASTA sequences for proteins of interest (e.g., MC3R_HUMAN and P29274) and save them to a text file.
+# Example sequences:
+
+"""
+>sp|P41968|MC3R_HUMAN Melanocortin receptor 3 OS=Homo sapiens OX=9606 GN=MC3R PE=1 SV=3
+MNASCCLPSVQPTLPNGSEHLQAPFFSNQSSSAFCEQVFIKPEVFLSLGIVSLLENILVI
+LAVVRNGNLHSPMYFFLCSLAVADMLVSVSNALETIMIAIVHSDYLTFEDQFIQHMDNIF
+DSMICISLVASICNLLAIAVDRYVTIFYALRYHSIMTVRKALTLIVAIWVCCGVCGVVFI
+VYSESKMVIVCLITMFFAMMLLMGTLYVHMFLFARLHVKRIAALPPADGVAPQQHSCMKG
+AVTITILLGVFIFCWAPFFLHLVLIITCPTNPYCICYTAHFNTYLVLIMCNSVIDPLIYA
+FRSLELRNTFREILCGCNGMNLG
+
+>sp|P29274|AA2AR_HUMAN Adenosine receptor A2a OS=Homo sapiens OX=9606 GN=ADORA2A PE=1 SV=2
+MPIMGSSVYITVELAIAVLAILGNVLVCWAVWLNSNLQNVTNYFVVSLAAADIAVGVLAI
+PFAITISTGFCAACHGCLFIACFVLVLTQSSIFSLLAIAIDRYIAIRIPLRYNGLVTGTR
+AKGIIAICWVLSFAIGLTPMLGWNNCGQPKEGKNHSQGCGEGQVACLFEDVVPMNYMVYF
+NFFACVLVPLLLMLGVYLRIFLAARRQLKQMESQPLPGERARSTLQKEVHAAKSLAIIVG
+LFALCWLPLHIINCFTFFCPDCSHAPLWLMYLAIVLSHTNSVVNPFIYAYRIREFRQTFR
+KIIRSHVLRQQEPFKAAGTSARVLAAHGSDGEQVSLRLNGHPPGVWANGSAPHPERRPNG
+YALGLVSGGSAQESQGNTGLPDVELLSHELKGVCPEPPGLDDPLAQDGAGVS
+"""
+
+# Step 4: Save sequences in .ali format.
+# Open a simple text editor (like Notepad or Visual Studio Code) and save your sequences with a .ali extension.
+# Ensure the title matches the Modeller example, and add an asterisk (*) at the end of each sequence.
+# Save this file (e.g., as "protein.ali").
+
+# Step 5: Install Python and Visual Studio Code.
+# Download and install Python from https://www.python.org/ and Visual Studio Code from https://code.visualstudio.com/.
+
+# Step 6: Download the Modeller script.
+# Go to the Modeller Basic Modeling tutorial and download the example Python script.
+# Example script from Modeller:
+from modeller import *
+
+log.verbose()
+env = Environ()
+
+# Prepare input files
+sdb = SequenceDB(env)
+sdb.read(seq_database_file='pdb_95.pir', seq_database_format='PIR',
+         chains_list='ALL', minmax_db_seq_len=(30, 4000), clean_sequences=True)
+
+sdb.write(seq_database_file='pdb_95.bin', seq_database_format='BINARY',
+          chains_list='ALL')
+
+sdb.read(seq_database_file='pdb_95.bin', seq_database_format='BINARY',
+         chains_list='ALL')
+
+aln = Alignment(env)
+aln.append(file='TvLDH.ali', alignment_format='PIR', align_codes='ALL')
+
+prf = aln.to_profile()
+
+prf.build(sdb, matrix_offset=-450, rr_file='${LIB}/blosum62.sim.mat',
+          gap_penalties_1d=(-500, -50), n_prof_iterations=1,
+          check_profile=False, max_aln_evalue=0.01)
+
+prf.write(file='build_profile.prf', profile_format='TEXT')
+
+aln = prf.to_alignment()
+
+aln.write(file='build_profile.ali', alignment_format='PIR')
+
+# Step 7: Modify the script.
+# Replace "TvLDH.ali" with the name of your .ali file.
+# For example, change 'TvLDH.ali' to 'protein.ali' (your file name).
+
+# Step 8: Ensure Modeller is installed correctly.
+# Check that Modeller is correctly installed on your system by running "modeller" in the command prompt or terminal.
+
+# Step 9: Organize your files.
+# Create a folder (e.g., "modelproject"), and place your .ali file and the Python script in it.
+
+# Step 10: Move the folder.
+# Move the "modelproject" folder to the Modeller "bin" directory (e.g., C:\Program Files\Modeller\bin).
+
+# Step 11: Open the Modeller terminal.
+# Navigate to the "bin" directory and check if your folder is accessible:
+
+"""
+cd bin
+dir
+dir modelproject
+"""
+
+# Step 12: Run the Python script.
+# Run the script in the Modeller terminal to generate the model.
+# If you encounter errors (e.g., unable to find a PDB file), ensure all files are correctly placed and named.
+
+# Step 13: Resolve common errors.
+# If you receive errors like "ImportError: No module named site", this indicates Python is not connecting with Modeller.
+# Ensure the script runs correctly and generates the model files.
+
+# Step 14: Download PDB files.
+# Download relevant PDB files from the Protein Data Bank and place them in your project folder.
+
+# Step 15: Download the second Modeller script.
+# This script aligns your target sequence with the template. Modify it with your PDB files.
+
+from modeller import *
+
+env = Environ()
+aln = Alignment(env)
+for (pdb, chain) in (('1b8p', 'A'), ('1bdm', 'A'), ('1civ', 'A'),
+                     ('5mdh', 'A'), ('7mdh', 'A'), ('1smk', 'A')):
+    m = Model(env, file=pdb, model_segment=('FIRST:'+chain, 'LAST:'+chain))
+    aln.append_model(m, atom_files=pdb, align_codes=pdb+chain)
+aln.malign()
+aln.malign3d()
+aln.compare_structures()
+aln.id_table(matrix_file='family.mat')
+env.dendrogram(matrix_file='family.mat', cluster_cut=-1.0)
+
+
