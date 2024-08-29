@@ -2,13 +2,31 @@ Main problem with homology modeling, is difficulties in finding correct files.
 
 A strategy, to move the file with homology information into the functional unit of Modeller program, for direct access as ADMINISTRATOR. Which means, that Modeller terminal needs to be opened as Administrator, otherwise no files will be found. 
 
-Resourses 
+Resourses: 
 1. Installed Modeller with functional licence.
 2. Installed Studio Visual Code with Python add on. 
 3. Move the folder once it contains basic functional files into the C:/ Programs/ ModellerXX:XX/ bin / modelproject
 
+Files needed: 
+1. Protein PDB Files.
+2. Alignment Files in PIR format
+3. Profile files in PAP format
+4. Run scripts. 
+5. Log of run scripts. 
 
-Functional File
+
+P41968-P29274.ali: Alignment of the two proteins in PIR format.
+Profile Files:
+
+P41968-P29274.pap: Alignment file in PAP format (if required by your workflow).
+Modeller Scripts:
+
+script.py (or other relevant scripts): Your Python scripts for running Modeller.
+Log File:
+
+--python.log: Log file for debugging purposes.
+
+Functional File: 
 1. Folder: modelproject
 2. PDB - data downloaded for proteins of intrests, renamed with UNIPROT names. Control that the files are .pdb
 3. pdb_95  PIR file from the Modeller, example. 
@@ -35,3 +53,8 @@ opens modelproject file with necessary files
 > mod10.5 script.py
 (control version of modxx.x with name of the scipt file that you want to run)
 Controll the file, for any additional files added on, with results of script run by terminal command. 
+
+
+
+
+
