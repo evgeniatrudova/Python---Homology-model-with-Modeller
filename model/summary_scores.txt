@@ -1,0 +1,4 @@
+Summary of successfully produced models:
+Filename                                molpdf      DOPE score     GA341 score
+---------------------------------------------------------------------------
+2ydv.pdb                            1842.18465       -98.80045         0.44429

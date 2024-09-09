@@ -1,0 +1,42 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+ _aln.pos     1    11    21    31    41    51
+sp|P41968|MC3R_HUMAN MNASCCLPSV QPTLPNGSEH LQAPFFSNQS SSAFCEQVFI KPEVFLSLGI VSLLENILVI
+sp|P29274|AA2AR_HUMAN ---------- ---------- --MP------ --IMGSSVYI T--VELAIAV LAILGNVLVC
+                  ---------------------- *--------     * * --* *       * * ** 
+
+ _aln.pos    61    71    81    91   101   111
+sp|P41968|MC3R_HUMAN LAVVRNGNLH SPMYFFLCSL AVADMLVSVS NALETIMIAI VHSDYLTFED QFIQHMD-NI
+sp|P29274|AA2AR_HUMAN WAVWLNSNLQ NVTNYFVVSL AAADIAVGVL AIPFAITI-- --------ST GFCAACHGCL
+                   **  * **      *  *** **  * *      * *----------   *     -  
+
+ _aln.pos   121   131   141   151   161   171
+sp|P41968|MC3R_HUMAN -FDSMICISL VASICNLLAI AVDRYVTIFY ALRYHSIMTV RKALTLIVAI WVCCGVCGVV
+sp|P29274|AA2AR_HUMAN FIACFVLVLT QSSIFSLLAI AIDRYIAIRI PLRYNGLVTG TRAKGIIAIC WVLSFAIGLT
+                  -           **  ***** ***  *   ***    *   *   *   **     *  
+
+ _aln.pos   181   191   201   211   221   231
+sp|P41968|MC3R_HUMAN FI-------- ---------- --------VY SE----SKMV IVCLITMFFA MMLLMGTLYV
+sp|P29274|AA2AR_HUMAN PMLGWNNCGQ PKEGKNHSQG CGEGQVACLF EDVVPMNYMV YFNFFACVLV PLLLMLGVYL
+                    --------------------------    ----  **            ***   * 
+
+ _aln.pos   241   251   261   271   281   291
+sp|P41968|MC3R_HUMAN HMFLFARLHV KRIAALPPAD -GVAPQQHSC MKGAVTITIL LGVFIFCWAP FFLHLVLIIT
+sp|P29274|AA2AR_HUMAN RIFLAARRQL KQMESQPLPG ERARSTLQKE VHAAKSLAII VGLFALCWLP LHIINCFTFF
+                    ** **   *     *   -            *    *  * *  ** *          
+
+ _aln.pos   301   311   321   331   341   351
+sp|P41968|MC3R_HUMAN CPTNPYCICY TAHFNTYLVL IMCNSVIDPL IYAFRSLELR NTFREILCGC NGMNLG----
+sp|P29274|AA2AR_HUMAN CPDCSHAPLW LM--YLAIVL SHTNSVVNPF IYAYRIREFR QTFRKIIRSH VLRQQEPFKA
+                  **          --    **   ***  * *** *  * * *** *          ----
+
+ _aln.pos   361   371   381   391   401   411
+sp|P41968|MC3R_HUMAN ---------- ---------- ---------- ---------- ---------- ----------
+sp|P29274|AA2AR_HUMAN AGTSARVLAA HGSDGEQVSL RLNGHPPGVW ANGSAPHPER RPNGYALGLV SGGSAQESQG
+                  ------------------------------------------------------------
+
+ _aln.pos   421   431   441   451
+sp|P41968|MC3R_HUMAN ---------- ---------- ---------- ------
+sp|P29274|AA2AR_HUMAN NTGLPDVELL SHELKGVCPE PPGLDDPLAQ DGAGVS
+                  ------------------------------------
+

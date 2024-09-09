@@ -1,0 +1,12 @@
+Ramachandran Plot Calculation Log
+Proteins Analyzed:
+- 2ydv.pdb
+- P41968.ent
+
+Angles:
+Total Phi Angles: 1336
+Total Psi Angles: 1336
+
+Sample Angles:
+First 10 Phi Angles: [np.float64(-39.66827102417429), np.float64(112.21796310652117), np.float64(-118.55570229474264), np.float64(-65.60766397840972), np.float64(-62.47961021936201), np.float64(-60.03161962302604), np.float64(-52.67138620618305), np.float64(-74.58015315700358), np.float64(-59.84202599115278), np.float64(-61.86546610584652)]
+First 10 Psi Angles: [np.float64(-50.33402402285638), np.float64(169.8409688206434), np.float64(120.83877559260037), np.float64(-32.734568968842865), np.float64(-45.9261033407682), np.float64(-50.65405126085647), np.float64(-46.752802742528445), np.float64(-40.83112436948656), np.float64(-42.802056964634644), np.float64(-40.01355333584424)]
